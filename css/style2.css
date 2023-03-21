@@ -81,6 +81,11 @@ button:hover {
     }
 }
 
+p{
+	font-size: 15px;
+	color: white;
+	font-weight: bold;
+}
 
 .container {
   display: flex;
