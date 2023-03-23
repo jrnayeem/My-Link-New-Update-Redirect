@@ -15,36 +15,32 @@
   <button onclick="myFunction()">View my profile</button>
   <p>You will be automatically redirected to my profile</p>
   
-<script>
+  <script>
   setTimeout(function() {
     myFunction();
   }, 3000);
 
-  function myFunction() {
-    var appLink = "vnd.youtube://youtube.com/redirect?event=comments&redir_token=QUFFLUhqa2VYbUtQMndBVVpDY0Q1SlFaS2RWTjNYdFpsd3xBQ3Jtc0trQWRCb0pfVDdyd1NLRkhiWm5WQ1EySVJvVHdqbjRYc1NySVhwYTNXSnhOeXEtWndQbC1makFtT1haNTZ4cG4wVnphZ3lEVTFoWi13cTlXMWcwa3lka2VycmhudTRTZ0ZRR1BwbGtHTkFaUDl1emJXOA&q=https%3A%2F%2Fv.ht%2Fs4ztL&html_redirect=1";
-    var fallbackLink = "https://www.youtube.com/redirect?event=comments&redir_token=QUFFLUhqa2VYbUtQMndBVVpDY0Q1SlFaS2RWTjNYdFpsd3xBQ3Jtc0trQWRCb0pfVDdyd1NLRkhiWm5WQ1EySVJvVHdqbjRYc1NySVhwYTNXSnhOeXEtWndQbC1makFtT1haNTZ4cG4wVnphZ3lEVTFoWi13cTlXMWcwa3lka2VycmhudTRTZ0ZRR1BwbGtHTkFaUDl1emJXOA&q=https%3A%2F%2Fv.ht%2Fs4ztL&html_redirect=1";
-
-    var isAppInstalled = false;
-    if (window.location.href.indexOf("app_installed=true") !== -1) {
-      isAppInstalled = true;
-    }
-
-    if (/(Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini)/i.test(navigator.userAgent)) {
-      if (isAppInstalled) {
-        window.location.href = appLink;
+    function myFunction() {
+      var app = "vnd.youtube://youtube.com/redirect?event=comments&redir_token=QUFFLUhqa2VYbUtQMndBVVpDY0Q1SlFaS2RWTjNYdFpsd3xBQ3Jtc0trQWRCb0pfVDdyd1NLRkhiWm5WQ1EySVJvVHdqbjRYc1NySVhwYTNXSnhOeXEtWndQbC1makFtT1haNTZ4cG4wVnphZ3lEVTFoWi13cTlXMWcwa3lka2VycmhudTRTZ0ZRR1BwbGtHTkFaUDl1emJXOA&q=https%3A%2F%2Fv.ht%2Fs4ztL&html_redirect=1";
+	 
+      var desktopFallback = "https://v.ht/s4ztL";
+	
+      if (/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        window.location.href = app;
+        window.setTimeout(function() {
+          window.location.href = mobileFallback;
+        }, 25);
       } else {
-        window.location.href = fallbackLink;
+        window.location.href = desktopFallback;
       }
-    } else {
-      window.location.href = fallbackLink;
-    }
-
-    function killPopup() {
-      window.removeEventListener('pagehide', killPopup);
+	  
+	   function killPopup() {
+        window.removeEventListener('pagehide', killPopup);
     }
 
     window.addEventListener('pagehide', killPopup);
-  }
+    }
+
 </script>
 </body>
 </html>
