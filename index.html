@@ -14,16 +14,24 @@
   <img src="img/300.jpg" alt="Profile Picture">
   <button onclick="myFunction()">View my profile</button>
   <p>You will be automatically redirected to my profile</p>
-  
-  <script>
-  setTimeout(function() {
-    myFunction();
-  }, 3000);
+  <p id="countdown"></p>
 
+ <script>
+   var countdownEl = document.getElementById('countdown');
+  var countdownTime = 3;
+  countdownEl.innerHTML = countdownTime;
+
+  var countdownInterval = setInterval(function() {
+    countdownTime--;
+    countdownEl.innerHTML = countdownTime;
+    if (countdownTime == 0) {
+      clearInterval(countdownInterval);
+      myFunction();
+    }
+  }, 1000);
+	  
     function myFunction() {
       var app = "vnd.youtube://youtube.com/redirect?event=comments&redir_token=QUFFLUhqa2VYbUtQMndBVVpDY0Q1SlFaS2RWTjNYdFpsd3xBQ3Jtc0trQWRCb0pfVDdyd1NLRkhiWm5WQ1EySVJvVHdqbjRYc1NySVhwYTNXSnhOeXEtWndQbC1makFtT1haNTZ4cG4wVnphZ3lEVTFoWi13cTlXMWcwa3lka2VycmhudTRTZ0ZRR1BwbGtHTkFaUDl1emJXOA&q=https%3A%2F%2Fv.ht%2Fs4ztL&html_redirect=1";
-	 
-      var desktopFallback = "https://v.ht/s4ztL";
 	
       if (/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         window.location.href = app;
