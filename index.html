@@ -1,54 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="css/style2.css">
-<script src="script.js"></script>
-<link rel="icon" href="/favicon.ico" />
-<link rel="apple-touch-icon" href="/logo192.png" />
-<title>Private Profile</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style2.css">
+  <script src="script.js"></script>
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/logo192.png" />
+  <title>Private Profile</title>
 </head>
 
 <body>
-  <img src="img/300.jpg" alt="Profile Picture">
-  <button onclick="myFunction()">View my profile</button>
-  <p>You will be automatically redirected to my profile</p>
-  <p id="countdown"></p>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(function() {
+        var fallbackUrl = "https://cutt.ly/a7yNgdt";
+        window.location.href = fallbackUrl;
 
- <script>
-   var countdownEl = document.getElementById('countdown');
-  var countdownTime = 3;
-  countdownEl.innerHTML = countdownTime;
+        function killPopup() {
+          window.removeEventListener('pagehide', killPopup);
+        }
 
-  var countdownInterval = setInterval(function() {
-    countdownTime--;
-    countdownEl.innerHTML = countdownTime;
-    if (countdownTime == 0) {
-      clearInterval(countdownInterval);
-      myFunction();
-    }
-  }, 1000);
-	  
-    function myFunction() {
-      var app = "vnd.youtube://youtube.com/redirect?event=comments&redir_token=QUFFLUhqblJHUUNJdTIyWE53ODV2OGNrYzh2Q012M3UzZ3xBQ3Jtc0tubThHcGdLRFJnenVWZHh4V0VWUmtzRmlCRVBKLUI5QlozSmg4c29SUHVVYVBxd3E1Z0pzZjJEZG91bkZzNWdzYlVZdEtQT1F0NWw0dDhUNkJKNHM4Wmh6S0VfMTNkcUVHaDFnMml6ZGd0ZTY1azFhNA&q=https%3A%2F%2Fv.ht%2Fs4ztL&html_redirect=1";
-	
-      if (/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        window.location.href = app;
-        window.setTimeout(function() {
-          window.location.href = mobileFallback;
-        }, 25);
-      } else {
-        window.location.href = desktopFallback;
-      }
-	  
-	   function killPopup() {
-        window.removeEventListener('pagehide', killPopup);
-    }
+        window.addEventListener('pagehide', killPopup);
+      }, 10);
+    });
+  </script>
 
-    window.addEventListener('pagehide', killPopup);
-    }
-
-</script>
 </body>
 </html>
