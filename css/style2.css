@@ -28,6 +28,23 @@ img {
     /* disable mouse events on the image */
 }
 
+.head {
+      font-size: 30px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    
+    .subhead {
+      font-size: 25px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+	
+	ol {
+  color: white; /* set the color to red */
+  font-size: 20px; /* set the font size to 20 pixels */
+}
+
 button {
     background: white;
     color: #F54EA2;
