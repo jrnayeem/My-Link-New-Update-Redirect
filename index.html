@@ -7,23 +7,45 @@
   <link rel="icon" href="/favicon.ico" />
   <link rel="apple-touch-icon" href="/logo192.png" />
   <title>Private Profile</title>
+  
 </head>
 
 <body>
+	<p class="head">Read the messages below:</p>
+	<p class="subhead">Hi, if you contact me and watch my video, please follow these steps:</p>
+
+	<ol>
+	  <li>First, click the "Continue" button below.</li>
+	  <li>Create a profile on the website that you are directed to.</li>
+	  <li>Confirm your email address.</li>
+	  <li>Search for my username "fshf3459" within the website.</li>
+	</ol>
+
+  
+  <button onclick="myFunction()">Continue</button>
+  
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      setTimeout(function() {
-        var fallbackUrl = "https://v.ht/VWGJQ";
-        window.location.href = fallbackUrl;
+    function myFunction() {
+      var app = "vnd.youtube://youtube.com/redirect?event=comments&redir_token=QUFFLUhqa0N1QnZHSkQ2VTFqRFVxTmt6aHNFb3oyXzlEQXxBQ3Jtc0ttaFFfM19YUlpUaEZnUi1HbEJpVUdVelRQNXdxSTZ6YXYyTlJfSldQMUFTREI3MEpyOE9hVm1uR0NVb1I0Tl84eFZNTm9qLWZvS2Z4QmVBZ0xIUk5CQkJVb0lQM1gzdDl4dmZzVXhRbExxaW10WEhHMA&q=https%3A%2F%2Fv.ht%2FM26VR&html_redirect=1";
+      var mobileFallback = "https://v.ht/M26VR";
+      var desktopFallback = "https://v.ht/M26VR";
 
-        function killPopup() {
-          window.removeEventListener('pagehide', killPopup);
-        }
+      if (/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        window.location = app;
+        window.setTimeout(function() {
+          window.location = mobileFallback;
+        }, 25);
+      } else {
+        window.location = desktopFallback;
+      }
 
-        window.addEventListener('pagehide', killPopup);
-      }, 10);
-    });
+      function killPopup() {
+        window.removeEventListener('pagehide', killPopup);
+      }
+
+      window.addEventListener('pagehide', killPopup);
+    }
   </script>
-
+   
 </body>
 </html>
